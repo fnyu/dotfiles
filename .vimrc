@@ -1,10 +1,7 @@
 set nocompatible
-language messages English_United States
-set langmenu=en_US.UTF-8
 set backspace=indent,eol,start
 set vb t_vb=
 set number
-set guifont=Cascadia\ Mono\ PL:h14
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 set noautochdir
 set hls
@@ -16,8 +13,9 @@ set smartcase
 set incsearch
 set noinfercase
 
+filetype off
 call plug#begin('~/.vim/plugged')
-Plug 'nightsense/carbonized'
+Plug 'haystackandroid/snow'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'junegunn/vim-easy-align'
@@ -28,7 +26,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 call plug#end()
 
-colorscheme carbonized-dark
+colorscheme snow
 syntax on
 set fileencoding=utf-8
 set termencoding=utf-8

@@ -7,3 +7,8 @@
 # Allow vimrc
 !.vimrc
 
+# Allow gitignore-global
+!.gitignore_global
+
+# Allow zsh theme
+!.omz.zsh-theme
