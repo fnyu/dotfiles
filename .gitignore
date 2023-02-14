@@ -12,3 +12,6 @@
 
 # Allow zsh theme
 !.omz.zsh-theme
+
+# Allow zshrc
+!.zshrc
