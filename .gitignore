@@ -1,6 +1,9 @@
 # Ignore everything by default
 *
 
+# Allow expand.sh
+!expand.sh
+
 # Allow gitignore
 !.gitignore
 
