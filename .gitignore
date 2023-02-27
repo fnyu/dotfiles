@@ -1,6 +1,10 @@
 # Ignore everything by default
 *
 
+#
+!.plugins
+!.plugins/*
+
 # Allow expand.sh
 !expand.sh
 
@@ -18,3 +22,6 @@
 
 # Allow zshrc
 !.zshrc
+
+# Allow promptctl
+!promptctl

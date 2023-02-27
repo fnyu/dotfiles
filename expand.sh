@@ -5,6 +5,8 @@ items=(
   ".omz.zsh-theme"
   ".vimrc"
   ".zshrc"
+  ".plugins"
+  "promptctl"
 )
 
 location=${0:a:h}

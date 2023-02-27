@@ -1,0 +1,42 @@
+#!/usr/bin/env zsh
+
+executable="$0"
+current_segments="$PROMPT_SEGMENTS"
+cmd="_$1"
+
+if [[ -z "$1" ]]; then
+  cmd="_help"
+fi
+
+_enable() {
+  shift
+  for segment in $@; do
+    if [[ "$current_segments" != *"$segment"* ]]; then
+      current_segments="$current_segments $segment"
+    fi
+  done
+  echo "export PROMPT_SEGMENTS=\"$current_segments\"" > ~/.segments
+  echo "Segments $@ have been enabled. Run the following command in your shell to apply changes:"
+  echo ""
+  echo "  source ~/.segments"
+}
+
+_disable() {
+  shift
+  for segment in $@; do
+    current_segments="${current_segments//$segment/}"
+  done
+  echo "export PROMPT_SEGMENTS=\"$current_segments\"" > ~/.segments
+  echo "Segments $@ has been disabled. Run the following command in your shell to apply changes:"
+  echo "  source ~/.segments"
+}
+
+_help() {
+  echo "$(basename $executable) [enable|disable] <segment>"
+}
+
+_list() {
+  echo "Available segments: git, dir, timew, k8s, aws"
+}
+
+$cmd $@

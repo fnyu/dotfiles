@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+countdown() {
+  now=$(date -u +%s)
+  out=$(date -u -r $(expr $1 - $now) | awk '{print $4}')
+  echo $out
+}

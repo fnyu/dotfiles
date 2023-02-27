@@ -54,3 +54,6 @@ zstyle ':completion:::::' completer _expand _complete _ignored _approximate # en
 
 export PATH="$PATH:$HOME/bin"
 
+if [[ -f $HOME/.customize ]]; then
+  source $HOME/.customize
+fi
