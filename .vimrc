@@ -24,6 +24,7 @@ Plug 'tpope/vim-markdown'
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
+Plug 'fatih/vim-go'
 call plug#end()
 
 colorscheme snow

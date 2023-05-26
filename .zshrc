@@ -1,22 +1,3 @@
-taskcount="$(task '(due:today or due:tomorrow)' list +zsh 2>/dev/null | tail -n1 | awk '{print $1}')"
-tasklist="$(task minimal | tail -n+4 | tail -r | tail -n+3 | tail -r)"
-
-if [[ "$taskcount" -eq 1 ]]; then
-  verb="needs"
-  noun="task"
-else
-  if [[ -z "$taskcount" ]]; then
-    taskcount="0"
-  fi
-  verb="need"
-  noun="tasks"
-fi
-
-echo "You have $taskcount $noun that $verb completion."
-if [[ "$taskcount" -gt 0 ]]; then
-  echo "\n$tasklist\n"
-fi
-
 alias k8s='export PROMPT_SEGMENTS="$PROMPT_SEGMENTS k8s"'
 source ~/.omz.zsh-theme
 source ~/.segments
@@ -52,8 +33,16 @@ zstyle ':completion:*' menu select # select completions with arrow keys
 zstyle ':completion:*' group-name '' # group results by category
 zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
 
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/bin:$HOME/go/bin"
 
 if [[ -f $HOME/.customize ]]; then
   source $HOME/.customize
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/fnk/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fnk/Applications/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/fnk/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fnk/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
