@@ -25,3 +25,7 @@
 
 # Allow promptctl
 !promptctl
+
+# Allow .zsh.rc.d
+!.zsh.rc.d
+!.zsh.rc.d/*
